@@ -1,5 +1,4 @@
 const path = require('path')
-const winston = require('winston')
 const readMiddlewareFolder = require('./readMiddlewareFolder')
 const getMiddlewareLocation = require('./getMiddlewareLocation')
 const globalMiddlewaresPath = path.resolve(__dirname, '../global')
