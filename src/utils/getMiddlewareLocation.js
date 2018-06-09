@@ -1,4 +1,4 @@
-module.exports = function getMiddlewareLocation(hook, modelName) {
+module.exports = function(hook, modelName) {
     return function getMiddlewareLocation(middleware) {
         return `${hook}.${middleware} - ${modelName.toUpperCase()}`
     }

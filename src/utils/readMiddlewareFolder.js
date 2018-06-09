@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const winston = require('winstons')
+const winston = require('winston')
 
 module.exports = function readMiddlewareFolder(hook, directory) {
     const middlewarePath = path.join(directory, hook)
