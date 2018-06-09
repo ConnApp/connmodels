@@ -17,8 +17,8 @@ module.exports = function readModelsFolder(directory) {
 
         return models
     } catch (error) {
-        winston.error(`There was an error reading path ${directory}`)
-        winston.error(error)
+        console.log(`There was an error reading path ${directory}`)
+        console.log(error)
 
         return []
     }

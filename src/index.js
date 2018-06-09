@@ -1,13 +1,12 @@
 const path = require('path')
-const winston = require('winston')
+
 const mongoose = require('mongoose')
-const readModelsFolder = require('utils/readModelsFolder')
+const readModelsFolder = require('./utils/readModelsFolder')
 
 module.exports = async function InitializeModels(mongoURL = process.env.MONGODB_URL) {
     const modelsPath = path.join(__dirname, './models')
 
     const mongooseOptions = {
-        useMongoClient: true,
         reconnectInterval: 500,
         promiseLibrary: global.Promise,
         reconnectTries: Number.MAX_VALUE,
@@ -19,10 +18,10 @@ module.exports = async function InitializeModels(mongoURL = process.env.MONGODB_
     )
 
     mongoose.connection.on('error', () => {
-        winston.error('MongoDB Connection Error. Please make sure that MongoDB is running.')
+        console.log('MongoDB Connection Error. Please make sure that MongoDB is running.')
     })
 
     readModelsFolder(modelsPath)
 
-    winston.info('MongoDB conntected successfully')
+    console.log('MongoDB conntected successfully')
 }

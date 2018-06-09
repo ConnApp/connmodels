@@ -23,8 +23,8 @@ module.exports = function readMiddlewareFolder(hook, directory) {
 
         return middlewares
     } catch (error) {
-        winston.error(`There was an error reading path ${middlewarePath}`)
-        winston.error(error)
+        console.log(`There was an error reading path ${middlewarePath}`)
+        console.log(error)
 
         return []
     }

@@ -4,12 +4,17 @@ module.exports = Schema(__dirname)({
     title: {
         type: String,
         required: true,
+        validate(v) {
+            return true
+        },
     },
 
     message: {
         type: String,
         required: true,
     },
+
+    number: { type: Number },
 
     active: {
         type: Boolean,

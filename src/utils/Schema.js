@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const requireMiddlewares = require('../../utils/requireMiddlewares')
+const requireMiddlewares = require('./requireMiddlewares')
 
 module.exports = directory => {
     return function buildSchema() {

@@ -36,13 +36,15 @@ module.exports = function requireMiddleware(Schema, modelDirectory) {
 
                 Schema[hook](operation, action)
             } catch (error) {
-                winston.error(`There was an error assigning the middleware ${locate(middleware)}`)
-                winston.error(error)
+                console.log(`There was an error assigning the middleware ${locate(middleware)}`)
+                console.log(error)
 
                 errors.push(error.message)
             }
         }
     }
 
-    winston.info(`Middlewares for model ${modelName} were initialized with ${errors.length} errors`)
+    console.log(
+        `Middlewares for model ${modelName.toUpperCase()} were initialized with ${errors.length} errors`
+    )
 }
