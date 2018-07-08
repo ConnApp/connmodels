@@ -1,6 +1,6 @@
 const { listFolders } = require('connutils').fs
 
-module.exports = function readModelsFolder(directory) {
+module.exports = function utils_readModelsFolder(directory) {
     try {
         const folders = listFolders(directory)
 
