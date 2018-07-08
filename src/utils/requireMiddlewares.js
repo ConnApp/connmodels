@@ -3,14 +3,16 @@ const readMiddlewareFolder = require('./readMiddlewareFolder')
 const getMiddlewareLocation = require('./getMiddlewareLocation')
 const globalMiddlewaresPath = path.resolve(__dirname, '../global')
 
-module.exports = function requireMiddleware(Schema, modelDirectory) {
+module.exports = function utils_requireMiddleware(Schema, modelDirectory) {
     const hooks = [
         'pre',
         'post',
     ]
 
     const modelName = modelDirectory.split('/').pop()
+
     const errors = []
+
     for (let hook of hooks) {
         const middlewares = readMiddlewareFolder(hook, modelDirectory)
         const globalMiddlewares = readMiddlewareFolder(hook, globalMiddlewaresPath)
@@ -36,6 +38,7 @@ module.exports = function requireMiddleware(Schema, modelDirectory) {
                 Schema[hook](operation, action)
             } catch (error) {
                 console.log(`There was an error assigning the middleware ${locate(middleware)}`)
+
                 console.log(error)
 
                 errors.push(error.message)

@@ -1,19 +1,14 @@
-const fs = require('fs')
-const winston = require('winston')
+const { listFolders } = require('connutils').fs
 
 module.exports = function readModelsFolder(directory) {
     try {
-        const isFolderAndExists = fs.existsSync(directory) && fs.lstatSync(directory).isDirectory()
+        const folders = listFolders(directory)
 
-        if (!isFolderAndExists) {
+        if (!folders.length) {
             throw new Error('Models directory not found')
         }
 
-        const models = fs.readdirSync(directory).map(model => {
-            const schema = require(`${directory}/${model}/schema`)
-
-            return schema
-        })
+        const models = folders.map(model => require(`${directory}/${model}/schema`))
 
         return models
     } catch (error) {
