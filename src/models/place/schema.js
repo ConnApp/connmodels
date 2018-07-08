@@ -6,8 +6,6 @@ module.exports = Schema(__dirname)({
         required: true,
     },
 
-    mapImage: { type: String },
-
     active: {
         type: Boolean,
         default: true,

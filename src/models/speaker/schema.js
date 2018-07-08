@@ -1,17 +1,9 @@
 const Schema = require('../../utils/Schema')
 
 module.exports = Schema(__dirname)({
-    title: {
-        type: String,
-        required: true,
-    },
+    name: String,
 
-    message: {
-        type: String,
-        required: true,
-    },
-
-    cover: { type: String },
+    description: String,
 
     active: {
         type: Boolean,

@@ -1,14 +1,18 @@
+const mongoose = require('mongoose')
 const Schema = require('../../utils/Schema')
 
 module.exports = Schema(__dirname)({
-    name: {
-        type: String,
+    title: String,
+    message: String,
+    cover: String,
+
+    company: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'company',
         required: true,
     },
 
-    mapImage: { type: String },
-
-    active: {
+    archived: {
         type: Boolean,
         default: true,
     },

@@ -3,30 +3,16 @@ const Schema = require('../../utils/Schema')
 
 module.exports = () =>
     Schema(__dirname)({
-        name: {
-            type: String,
-            required: true,
-        },
+        id: String,
+        name: String,
+        description: String,
 
-        description: {
-            type: String,
-            required: false,
-        },
-
-        start: {
-            type: Date,
-            required: true,
-        },
-
-        end: {
-            type: Date,
-            required: true,
-        },
-
-        like: {
-            type: Number,
-            default: 0,
-        },
+        likes: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'members',
+            },
+        ],
 
         speakers: [
             {
@@ -35,24 +21,37 @@ module.exports = () =>
             },
         ],
 
-        eventType: {
+        event: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'eventtypes',
+            ref: 'event',
             required: true,
         },
 
-        order: {
-            type: Number,
-            default: 0,
+        lectureType: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'lectureType',
+            required: true,
         },
 
         place: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'places',
+            ref: 'place',
             required: true,
         },
 
-        active: {
+        schedule: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'schedule',
+            required: true,
+        },
+
+        company: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'company',
+            required: true,
+        },
+
+        archived: {
             type: Boolean,
             default: true,
         },
