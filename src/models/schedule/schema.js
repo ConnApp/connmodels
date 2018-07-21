@@ -13,10 +13,12 @@ module.exports = () =>
             required: false,
         },
 
-        likes: {
-            type: Number,
-            default: 0,
-        },
+        likes: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'user',
+            },
+        ],
 
         order: {
             type: Number,

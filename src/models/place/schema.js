@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const Schema = require('../../utils/Schema')
 
 module.exports = Schema(__dirname)({
@@ -6,6 +7,12 @@ module.exports = Schema(__dirname)({
         required: true,
     },
 
+    likes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'user',
+        },
+    ],
     active: {
         type: Boolean,
         default: true,

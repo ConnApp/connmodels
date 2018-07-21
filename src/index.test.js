@@ -20,6 +20,7 @@ test.cb('should add lastUpdate when saving', t => {
         const testNew = await new InfoModel({
             title: 'title',
             message: 'message',
+            company: mongoose.Types.ObjectId(),
         }).save()
 
         const oldTime = testNew.lastUpdate.getTime()

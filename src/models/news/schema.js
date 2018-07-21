@@ -11,6 +11,13 @@ module.exports = Schema(__dirname)({
         required: true,
     },
 
+    likes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'user',
+        },
+    ],
+
     company: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'company',

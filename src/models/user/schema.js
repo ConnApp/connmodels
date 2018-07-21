@@ -8,11 +8,24 @@ module.exports = () =>
             required: true,
         },
 
+        user_type: {
+            type: String,
+            enum: [
+                'member',
+                'manager',
+                'admin',
+                'owner',
+            ],
+            default: 'member',
+        },
+
         company: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'company',
             required: true,
         },
+
+        password: String,
 
         archived: {
             type: Boolean,

@@ -6,6 +6,13 @@ module.exports = () =>
         name: String,
         description: String,
 
+        likes: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'user',
+            },
+        ],
+
         map: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'map',

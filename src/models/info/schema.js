@@ -5,6 +5,13 @@ module.exports = Schema(__dirname)({
     title: String,
     message: String,
 
+    likes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'user',
+        },
+    ],
+
     company: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'company',

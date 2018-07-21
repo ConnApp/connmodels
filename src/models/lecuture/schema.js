@@ -10,7 +10,7 @@ module.exports = () =>
         likes: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'members',
+                ref: 'user',
             },
         ],
 
